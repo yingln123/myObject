@@ -1,0 +1,749 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>萌哒哒个人网站</title>
+<!--<script language =javascript > 
+var $ = function (id) { 
+return "string" == typeof id ? document.getElementById(id) : id; 
+}; 
+
+var Class = { 
+create: function() { 
+return function() { 
+this.initialize.apply(this, arguments); 
+} 
+} 
+} 
+
+Object.extend = function(destination, source) { 
+for (var property in source) { 
+destination[property] = source[property]; 
+} 
+return destination; 
+} 
+
+var TransformView = Class.create(); 
+TransformView.prototype = { 
+//容器对象,滑动对象,切换参数,切换数量 
+initialize: function(container, slider, parameter, count, options) { 
+if(parameter <= 0 || count <= 0) return; 
+var oContainer = $(container), oSlider = $(slider), oThis = this; 
+
+this.Index = 0;//当前索引 
+
+this._timer = null;//定时器 
+this._slider = oSlider;//滑动对象 
+this._parameter = parameter;//切换参数 
+this._count = count || 0;//切换数量 
+this._target = 0;//目标参数 
+
+this.SetOptions(options); 
+
+this.Up = !!this.options.Up; 
+this.Step = Math.abs(this.options.Step); 
+this.Time = Math.abs(this.options.Time); 
+this.Auto = !!this.options.Auto; 
+this.Pause = Math.abs(this.options.Pause); 
+this.onStart = this.options.onStart; 
+this.onFinish = this.options.onFinish; 
+
+oContainer.style.overflow = "hidden"; 
+oContainer.style.position = "relative"; 
+
+oSlider.style.position = "absolute"; 
+oSlider.style.top = oSlider.style.left = 0; 
+}, 
+//设置默认属性 
+SetOptions: function(options) { 
+this.options = {//默认值 
+Up: true,//是否向上(否则向左) 
+Step: 10,//滑动变化率 
+Time: 10,//滑动延时 
+Auto: true,//是否自动转换 
+Pause: 2000,//停顿时间(Auto为true时有效) 
+onStart: function(){},//开始转换时执行 
+onFinish: function(){}//完成转换时执行 
+}; 
+Object.extend(this.options, options || {}); 
+}, 
+//开始切换设置 
+Start: function() { 
+if(this.Index < 0){ 
+this.Index = this._count - 1; 
+} else if (this.Index >= this._count){ this.Index = 0; } 
+
+this._target = -1 * this._parameter * this.Index; 
+this.onStart(); 
+this.Move(); 
+}, 
+//移动 
+Move: function() { 
+clearTimeout(this._timer); 
+var oThis = this, style = this.Up ? "top" : "left", 
+iNow = parseInt(this._slider.style[style]) || 0, 
+iStep = this.GetStep(this._target, iNow); 
+
+if (iStep != 0) { 
+this._slider.style[style] = (iNow + iStep) + "px"; 
+this._timer = setTimeout(function(){ oThis.Move(); }, this.Time); 
+} else { 
+this._slider.style[style] = this._target + "px"; 
+this.onFinish(); 
+if (this.Auto) { this._timer = setTimeout(function(){ oThis.Index++; oThis.Start(); }, this.Pause); } 
+} 
+}, 
+//获取步长 
+GetStep: function(iTarget, iNow) { 
+var iStep = (iTarget - iNow) / this.Step; 
+if (iStep == 0) return 0; 
+if (Math.abs(iStep) < 1) return (iStep > 0 ? 1 : -1); 
+return iStep; 
+}, 
+//停止 
+Stop: function(iTarget, iNow) { 
+clearTimeout(this._timer); 
+this._slider.style[this.Up ? "top" : "left"] = this._target + "px"; 
+} 
+}; 
+
+window.onload=function(){ 
+function Each(list, fun){ 
+for (var i = 0, len = list.length; i < len; i++) { fun(list[i], i); } 
+}; 
+
+var objs = $("idNum2").getElementsByTagName("li"); 
+
+var tv = new TransformView("idTransformView2", "idSlider2", 408, 6, { 
+onStart: function(){ Each(objs, function(o, i){ o.className = tv.Index == i ? "on" : ""; }) },//按钮样式 
+Up: false 
+}); 
+
+tv.Start(); 
+
+Each(objs, function(o, i){ 
+o.onmouseover = function(){ 
+o.className = "on"; 
+tv.Auto = false; 
+tv.Index = i; 
+tv.Start(); 
+} 
+o.onmouseout = function(){ 
+o.className = ""; 
+tv.Auto = true; 
+tv.Start(); 
+} 
+}) 
+} -->
+
+</script>
+<style type="text/css" >
+*{padding:0px;margin:0px;}
+html,body{width:100%}
+#main{
+	width:1350px;
+	margin:0px auto;
+	background:url(img/background.jpg);
+	background-size:1350px;
+}
+#top{
+	width:1350px;
+	height:44px;
+	background-color:#E72E34;
+}
+.top-form{
+	margin-left:700px;
+}
+.search{
+	width:200px;
+	height:30px;
+}
+
+.menu{
+	width:50px;
+	height:32px;
+	background-color:#FF66FF;
+	font: 18px  "微软雅黑";
+	color:#FFFFFF;
+	letter-spacing:5px;
+}
+.top-form span a,font{
+	line-height:2px;
+	font:16px "微软雅黑";
+	color:#FFFFFF;
+	letter-spacing:3px;
+	text-decoration:none;
+}
+#center-main{
+	width:1200px;
+	margin:0px auto;
+}
+.center-top{
+    width:1200px;
+}
+.top-top{
+	
+	width:1200px;
+	height:180px;
+	}
+.top-top-title{
+	width:362px;
+	height:209px;
+	float:left;
+	margin-top:-31px;
+	margin-left:60px;
+}
+.top-top-img{
+	border-bottom:2px #660033 solid;
+	margin-bottom:-30px;
+}
+.top-top-img img{
+	margin-left:20px;
+}
+
+.caption{
+	list-style:none;
+    height:40px;
+	background-color:#E72E34;
+}
+.caption ul{
+	list-style:none;
+	display:block;
+}
+.caption li{
+	float:left;
+	text-align:center;
+	width:100px;
+	margin:15px 4px;
+	
+	font:18px "微软雅黑" ;
+	color:#FFFFFF;
+	margin-left:60px;
+	margin-top:7px;
+}
+.caption a:link,.caption a:visited{
+	text-decoration:none;
+	color:#FFFFFF
+}
+.caption a:hover{
+    font-size:20px;
+	text-decoration:underline;
+	color:#FFFFFF
+}
+.top-new{overflow:hidden; width:1360px; margin-bottom:10px;}
+.top-left{
+	border:1px #FF0000 dashed;
+	width:330px;
+	height:600px;
+	float:left;
+	overflow:hidden;
+	font:"微软雅黑" ;
+	line-height:1.5em;
+}
+.top-left li{
+	font-size:18px;
+	color:#FF0000;
+	font-weight:bold;
+	text-align:center;
+}
+.top-left p{
+	font-size:16px;
+	color:#757575;
+	text-indent:2em;
+	border-bottom:1px #C8C8C8 dotted;
+}
+.top-left a:link,.caption a:visited{
+	text-decoration:none;
+	
+}
+.top-left a:hover{
+	text-decoration:underline;
+}
+.top-center{
+	width:856px;
+	height:600px;
+	float:left;
+	margin-left:10px;
+	overflow:hidden;
+	position:relative;
+}
+/*.top-right{
+	border:1px #9900CC solid;
+	width:130px;
+	height:600px;
+	float:left;
+	margin-left:10px;
+	overflow:hidden;
+}*/
+/******************************************************************************************************************************99*/
+.slider{position:absolute;} 
+.slider li{ list-style:none;display:inline;} 
+.slider img{ width:856px; height:600px; display:block;} 
+
+.slider2{width:1360px;} 
+.slider2 li{float:left;} 
+
+.num{ position:absolute; right:5px; bottom:5px;} 
+.num li{ 
+float: left; 
+color: #FF7300; 
+text-align: center; 
+line-height: 16px; 
+width: 16px; 
+height: 16px; 
+font-family: Arial; 
+font-size: 12px; 
+cursor: pointer; 
+overflow: hidden; 
+margin: 3px 1px; 
+border: 1px solid #FF7300; 
+background-color: #fff; 
+} 
+.num li.on{ 
+color: #fff; 
+line-height: 21px; 
+width: 21px; 
+height: 21px; 
+font-size: 16px; 
+margin: 0 1px; 
+border: 0; 
+background-color: #FF7300; 
+font-weight: bold; 
+}
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888*/
+.center-center{
+	width:1200px;
+	height:30px;
+	overflow:hidden;
+	background-color:#E72E34;
+	}
+
+
+.center-footer{
+	width:1200px;
+	
+}
+.footer-left{
+	width:260px;
+	height:370px;
+	float:left;
+}
+.footer-center{
+	width:650px;
+	height:370px;
+	float:left;
+	margin-left:10px;
+}
+.footer-right{
+	border:1px #A0A0A4 dashed;
+	width:260px;
+	height:370px;
+	float:left;
+	margin-left:10px;
+}
+.footer-righ marquee{
+   width:260px;
+	height:360px;
+	margin-bottom:6px;
+	
+}
+.new-new{
+	border:1px #FF00AA solid;
+	width:1200px;
+	height:30px;
+	overflow:hidden;
+	background-color:#E72E34;
+	
+}
+.new-new2{
+	border:1px #7FBF55 solid;
+	width:1200px;
+}
+.new-new2-left{
+	border:1px #FF3FAA solid;
+	width:450px;
+	float:left;
+}
+.new-left{
+border:1px #7F3F55 solid;
+width::400px;
+float:left; 
+margin-left:8px;
+}
+.new-new2-left img{
+width:180px;
+height:200px;
+}
+.new-left-1,.new-left-2,.new-left-3,.new-left-4{
+width:180px;
+float:left;
+margin-top:10px;
+margin-left:30px;
+margin-bottom:5px;
+font: 8px "微软雅黑";
+color:#4D4D4D;
+line-height:2em;
+}
+.new-new2-left a:link,.caption a:visited{
+	text-decoration:none;
+}
+.new-new2-left a:hover{
+	text-decoration:underline;
+	color:#4D4D4D;
+}
+.new-new2-right{
+	width:700px;
+	float:left;
+	margin-left:4px;
+	
+}
+.new-new2-right img{
+	width:220px;
+	height:180px;
+	float:left;
+	border:1px #A0A0A4 solid;
+}
+/*.right-1,.right-3,.right-5{
+display:block;
+margin-left:5px;
+}
+
+.right-1,.right-3,.right-5,.right-2,.right-4,.right-6{
+height:180px;
+float:left;
+border:2px #FF3FAA solid;
+width:220px;
+margin-top:10px;
+margin-left:2px;
+margin-bottom:5px;
+font: 8px "微软雅黑";
+color:#4D4D4D;
+line-height:2em;
+}*/
+
+.right-1{margin-top:10px;}
+
+.right-5{
+    margin-top:10px;
+	margin-left:2px;
+	margin-bottom:5px;
+	width:221px;
+	height:181px;
+	float:left;
+}
+.right-2,.right-4,.right-6{
+    float:left;
+	margin-top:3px;
+	margin-left:5px;
+	width:450px;
+	height:181px;
+	font: 8px "微软雅黑";
+	color:#4D4D4D;
+	line-height:2em;
+}
+/*.right-2,.nright-4,.right-6{
+width:370px;
+float:left;
+}*/
+
+#footer{
+	width:1350px;
+	height:150px;
+	overflow:hidden;
+	background:url(img/bottom.png) no-repeat;
+	background-color:#E72E34;
+	margin:0px auto;
+}
+.footer-css{
+	margin-left:600px;
+	margin-top:50px;
+	font:16px "微软雅黑";
+	color:#FFFFFF;
+	font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body onload="MM_CheckFlashVersion('7,0,0,0','');">
+
+<div id="main">
+     <div id="top">
+       <table  >
+         <tr border="1px"; bordercolor="#00FF00">
+         <td >
+           <div class="top-form">
+             <form method='post' action="#">
+             <input  class="search" type="text" name="name" placeholder="请输入要搜索的主题"  />
+             <input class="menu" type="submit" name="submit" value="搜索" />&nbsp;&nbsp;
+             <span><a href="#">登陆</a></span><font>|</font>
+             <span><a href="#">注册</a></span><font>|</font>
+             <span><a href="#">论坛</a></span><font>|</font>
+             <span><a href="#">会员</a></span><font>|</font>
+             </form>
+           </div>
+         </td>
+         </tr>
+       </table>
+     </div>
+    <div id="center-main">
+                 <div class="center-top">
+                       <div class="top-top">
+                           <div class="top-top-title">
+                           <img src="img/title.png"  class="bottom-img"/>
+                           </div>
+                           <div class="top-top-img">
+                           <img src="img/ali1.gif" />
+                           <img src="img/ali2.gif" />
+                           <img src="img/ali3.gif" />
+                           <img src="img/ali5.gif" />
+                           <img src="img/ali4.gif" />
+                           <img src="img/ali6.gif" />
+                           <img src="img/ali7.gif" /> <br />
+                          <br /> <img src="img/text.png" style="margin-left:200px;" /> 
+                        
+                           </div>
+                         
+                       </div>
+                    <div class="caption">
+                         <ul >
+                         <li><a href="#">阿狸作品</a></li>
+                          <li><a href="#">梦之城堡</a></li>
+                           <li><a href="#">永远站</a></li>
+                           <li><a href="#">信燕</a></li>
+                           <li><a href="#">专业书评</a></li>
+                            <li><a href="#">阿狸留言</a></li>
+                             <li><a href="#">联系我们</a></li>
+                         </ul> 
+                   </div> 
+                   <div class="top-new">         
+                           <div class="top-left">
+                           <ul>
+                           <li>随笔</li>
+                              <p><a href="#">我拥着你入睡，仿佛拥着J大调的夜曲，面对着你，我呼吸的空气都有你的味道，梦的很深，深的不会再次醒来，叫做命运。</a></p>
+                           <li>灯</li>
+                              <p><a href="#">阿狸在世界中前行，走了很久很久，穿越的传说的梦境，只是再远的旅程，再黑的夜晚，心底也有父母的温暖陪伴...</a></p>
+                             <li>学会</li>
+                               <p><a href="#">阿狸几乎能学会所有，他是如此的聪明，他是那么的可爱，但是总也有学不会的事情，上帝是最公平的.</a></p>
+                           <li>白色花开</li>
+                              <p><a href="#">巫师安静的后花园，美丽的白色玫瑰就那样安静的绽开，有人能听到她开花的声音，有人也能看到花落的结局...</a></p>
+                             <li>如果.爱</li>
+                              <p><a href="#">如果我们爱上了世界上最不可能爱上的人，这个世界是否仍然存在？还是上帝和魔鬼和我们开了一个玩笑，如果，我，爱上，你。</a></p>
+                           <li>我相信</li>
+                           <p><a href="#">我相信世界上存在着童话，王子和公主永远在金色城堡里幸福的守望爱情，世界上的精灵在黑暗里看着我们，我站在金色的麦田中，一个喷嚏，金色荡漾...</a></p>
+                           </ul>
+                           </div>
+                     <div class="top-center" id="idTransformView2">
+                                        <ul class="slider slider2" id="idSlider2"> 
+                                <li><img src="img/img1.jpg"/></li> 
+                               <!-- <li><img src="img/img2.jpg"/></li> 
+                                 <li><img src="img/img3.jpg"/></li> 
+                                  <li><img src="img/img4.jpg"/></li> 
+                                  <li><img src="img/img5.jpg"/></li> 
+                                  <li><img src="img/img6.jpg"/></li> -->
+                                </ul> 
+                                <ul class="num" id="idNum2"> 
+                                <li>1</li> 
+                               <!-- <li>2</li> 
+                                <li>3</li> 
+                                <li>4</li>
+                                <li>5</li> 
+                                <li>6</li>-->
+                                </ul> 
+                           
+                     </div>
+                           <!--<div class="top-right">1-3</div>-->
+                   </div>
+                 </div>
+                  <div class="center-center">
+                  <table align="top">
+                  <tr>
+                  <td>
+                  <span style="font:微软雅黑;font-size:20px; color:#FFFFFF;">&nbsp;&nbsp;阿狸·梦之城堡</span>
+                  </td>
+                  <td>&nbsp;&nbsp;<strong><hr  color="#FFF" width="900px"/></strong></td>
+                  </tr>
+                  </table>
+                  </div>
+                  <div class="center-footer">
+                           <div class="footer-left">
+									<script language="javascript">
+                                    
+                                    var curIndex=0;
+                                    //时间间隔 单位毫秒
+                                    var timeInterval=2000;
+                                    var arr=new Array();
+                                    arr[0]="img/1.jpg" ;
+                                    arr[1]="img/2.jpg";
+                                    arr[2]="img/3.jpg";
+                                    arr[3]="img/4.jpg";
+                                    arr[4]="img/5.jpg";
+                                    
+                                    setInterval(changeImg,timeInterval);
+                                    function changeImg()
+                                    {
+                                     var obj=document.getElementById("obj");
+                                     if (curIndex==arr.length-1) 
+                                     {
+                                     curIndex=0;
+                                     }
+                                     else
+                                    {
+                                    curIndex+=1;
+                                     }
+                                     obj.src=arr[curIndex];
+                                    }
+                                    </script>
+                                    
+                             <img id=obj src="img/1.jpg" border =0  width="260px" height="360px"/>
+                                    
+                                    
+
+                           </div>
+                           <div class="footer-center">
+   						<embed src="img/yanhuo.mkv" width="650" height="360" autostart="true"></embed>
+                           </div>
+                           <div class="footer-right">
+                           <marquee direction="up"  scrollamount="1" scrolldelay="50" width="260px" height="370px">
+      <center> <pre><strong style="color:#FF0000"><h2>烟    火</h2></strong>
+陈翔
+          
+   <span style="color:#808080"><h3>夜已深了 雨水的气味 渐渐蔓延 
+　　缓缓时钟习惯眠      
+　　墙面上摇晃的树影 
+　　有一点倔强独特的美 
+　　有些陌生 有些熟悉 
+　　似有若无的爱情 
+　　 
+　天已亮了电视还没关 演着想念 
+　　哪句对白是谁的遗憾 
+　　相似的地点和时间 
+　　假装不见却又会遇见 
+　　我们之间 那么巧合 
+　　画面却已经走远 
+　你就像烟火的美丽 那么美丽 
+　　轻划过无人的天际 
+　　曾经交换过的秘密 
+　　紧紧埋藏在心底 
+你就像烟火的神秘 那么神秘 
+　　风随着你若即若离 
+　　留下触不到的可惜 
+　　陨落下了我们的回忆 
+　　 
+天已亮了电视还没关 演着想念 
+　　哪句对白是谁的遗憾 
+　　相似的地点和时间 
+　　假装不见却又会遇见 
+　　我们之间 那么巧合 
+　　画面却已经走远 
+你就像烟火的美丽 那么美丽 
+　　轻划过无人的天际 
+　　曾经交换过的秘密 
+　　紧紧埋藏在心底 
+　　你就像烟火的神秘 那么神秘 
+　　风随着你若即若离 
+　　留下触不到的可惜 
+　　陨落下了我们的回忆 
+　　 
+　你就像烟火的美丽 那么美丽 
+　　轻划过无人的天际 
+　　曾经交换过的秘密 
+　　紧紧埋藏在心底 
+你就像烟火的神秘 那么神秘 
+　　风随着你若即若离 
+　　留下触不到的可惜 
+　　陨落下了我们的回忆</h3></span> </pre></center>
+                    </marquee>
+                     </div>
+                  </div>
+                  
+                  
+                   <div class="new-new">
+                    <table align="top">
+                  <tr>
+                  <td>
+                  <span style="font:微软雅黑;font-size:20px; color:#FFFFFF;">&nbsp;&nbsp;阿狸·永远站</span>
+                  </td>
+                  <td>&nbsp;&nbsp;<strong><hr  color="#FFF" width="900px"/></strong></td>
+                  </tr>
+                  </table>
+                   </div>   
+                   
+       <div class="new-new2">
+                       <div class="new-new2-left">
+                               <div class="new-left-1"><img src="img/book1.jpg" />
+                               <a href="#">&nbsp;&nbsp;&nbsp;通过尾巴、花儿、秘密、存在、石子、演唱会等励志故事，讲述关于爱、梦想、成长的梦幻童话。</a>
+                              </div>
+                                <div class="new-left-2"><img src="img/book2.jpg" />
+                                  <a href="#">&nbsp;&nbsp;&nbsp;阿狸即将启程，前往梦幻国度——法国！在越来越纷杂的世界里，还有多少人会相信童话呢？ </a>
+                                </div>
+                                 <div class="new-left-3"><img src="img/book3.jpg" />
+                                    <a href="#">&nbsp;&nbsp;&nbsp;据说月之神“Arain”把她的祈祷赋予这片大地，让一切变得安详宁静！</a>
+                                 </div>
+                                  <div class="new-left-4"><img src="img/book4.jpg" />
+                                  <a href="#">&nbsp;&nbsp;&nbsp;阿狸登上了一辆没有终点站的巴士车，开始他寻找永远的旅程，永远到底在哪里呢？其实没有永远！</a>
+                                  </div>
+                       </div>
+                       <div class="new-new2-right">
+                                   <div class="right-1">
+                                      <img src="img/f1.png" />
+                                   </div>
+                                   <div class="right-2">
+                                  <br /> <center><strong style="font-size:18px; color:#E72E34">阿狸</strong>
+                                  <br />
+                                    类别：红色小狐狸<br />
+                                    星座：双鱼座狸<br />
+                                    生日：3月16日狸<br />
+                                    最喜欢吃的东西：鸡肉卷、柚狸子汁<br />
+                                    性格：可爱，温暖，孩子气，一直相信狸童话。<br /></center>
+                                   </div>
+                                   
+                                     <div class="right-3">
+                                      <img src="img/f2.png" />
+                                   </div>
+                                   <div class="right-4">
+                                    <br /><center><strong style="font-size:18px; color:#E72E34">桃子</strong>
+                                 <br /> 
+                                    阿狸的女朋友<br />
+                                    类别：粉色小狐狸<br />
+                                    星座：天秤座<br />
+                                    爱好：爱做饭，但是做饭巨难吃。<br />
+                                    性格：善良的小傲娇，喜欢写信，有一点小小的公主病。<br /></center>
+                                   </div>
+                                   
+                                      <div class="right-5">
+                                      <img src="img/f8.png" />
+                                   </div>
+                                   <div class="right-6">
+                                 <br /><center><strong style="font-size:18px; color:#E72E34">梁小宁</strong>
+                                 <br /> 
+                                    类别：加班狗<br />
+                                    星座：水瓶座<br />
+                                    爱好：看妹子。<br />
+                                    性格：善良，温柔。<br /></center>
+                                   </div>
+                                  
+                                 
+                                  
+                                 
+                       </div>
+        </div>
+                   
+                   
+               </div>
+              </div>    
+        
+        
+                                        
+    
+     
+    <div id="footer">
+    <div class="footer-css">
+    <span>大雁*独家</span>
+    
+    </div>
+    </div>
+</div>
+</body>
+</html>
