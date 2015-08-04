@@ -1,0 +1,609 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+   	 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<style>
+			.red{color:red;}
+		</style>
+	</head>
+	<body>
+		<div data-role="page" id="home"  data-position="fixed" >
+			<div data-role="header">
+				<h1>首页</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-inset="false">
+					<li>
+						<a href="#core-menu" >核心</a>
+					</li>
+					<li>
+						<a href="#selector-menu" >选择器</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >AJAX</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >属性</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >CSS</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >文档处理</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >筛选</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >事件</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >效果</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >工具</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >事件对象</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >延迟对象</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >回调函数</a>
+					</li>
+					<li>
+						<a href="javascript:void();" >其他</a>
+					</li>
+				</ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>jQuery api HOME</h1>
+			</div>
+		</div>
+
+		<!--核心列表菜单 -->
+		<div data-role="page" id="core-menu">
+			<div data-role="header"  data-position="fixed">
+				<a data-role="button" href="#home" data-icon="home">首页</a>
+				<h1>jQuery 核心</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview">
+					<li>
+						<a href="#core-jquery-1">
+							<h3>jQuery([selector,[context]])</h3>
+							<p>这个函数接收一个包含 CSS 选择器的字符串，然后用这个字符串去匹配一组元素。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>jQuery(html,[ownerDocument])</h3>
+							<p class="red">在jQuery 1.8中添加</p>
+							<p class="red">根据提供的原始 HTML 标记字符串，动态创建由 jQuery 对象包装的 DOM 元素。同时设置一系列的属性、事件等。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>jQuery(callback)</h3>
+							<p>$(document).ready()的简写。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>jQuery.holdReady(hold) </h3>
+							<p class="red">暂停或恢复.ready() 事件的执行。在jQuery 1.6中添加</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>each(callback)</h3>
+							<p>以每一个匹配的元素作为上下文来执行一个函数。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>size()</h3>
+							<p>jQuery 对象中元素的个数。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>length</h3>
+							<p>jQuery 对象中元素的个数。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>selector</h3>
+							<p>返回传给jQuery()的原始选择器。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>context</h3>
+							<p>返回传给jQuery()的原始的DOM节点内容，即jQuery()的第二个参数。如果没有指定，那么context指向当前的文档(document)。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>get([index])</h3>
+							<p>取得其中一个匹配的元素。 num表示取得第几个匹配的元素。从0开始，返回的是DOM对象，类似的有eq(index),不过eq(index)返回的是jQuery对象。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>index([selector|element])</h3>
+							<p>搜索匹配的元素，并返回相应元素的索引值，从0开始计数。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>data([key],[value])</h3>
+							<p>在元素上存放或读取数据,返回jQuery对象。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>removeData([name|list])</h3>
+							<p class="red">在元素上移除存放的数据。 在jQuery1.7中添加</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>jQuery.data(element,[key],[value])</h3>
+							<p style="color:red">在元素上存放数据,返回jQuery对象。此方法在jQuery 1.8中删除.</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>queue(element,[queueName])</h3>
+							<p>显示或操作在匹配元素上执行的函数队列</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>dequeue([queueName])</h3>
+							<p>从队列最前端移除一个队列函数，并执行他</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>clearQueue([queueName])</h3>
+							<p>清空对象上尚未执行的所有队列</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>jQuery.fn.extend(object)</h3>
+							<p>扩展 jQuery 元素集来提供新的方法（通常用来制作插件）。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>jQuery.extend(object)</h3>
+							<p>扩展jQuery对象本身。</p>
+						</a>
+					</li>
+					<li>
+						<a href="#core-jquery-1">
+							<h3>jQuery.noConflict([extreme])</h3>
+							<p>运行这个函数将变量$的控制权让渡给第一个实现它的那个库。</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>jQuery api</h1>
+			</div>
+		</div>
+
+
+		<div data-role="page" id="core-jquery-1">
+			<div data-role="header"  data-position="fixed">
+				<a data-role="button" href="#home" data-icon="home">首页</a>
+				<h1>jQuery 核心</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview">
+					<li>
+						<a href="#core-jquery-1">
+							<h3>jQuery([selector,[context]])</h3>
+							<p>这个函数接收一个包含 CSS 选择器的字符串，然后用这个字符串去匹配一组元素。</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>jQuery api</h1>
+			</div>
+		</div>
+
+		<!--选择器菜单列表 -->
+		<div data-role="page" id="selector-menu">
+			<div data-role="header"  data-position="fixed">
+				<a data-role="button" href="#home" data-icon="home">首页</a>
+				<h1>jQuery 选择器</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview">
+					<li>
+						<a href="">
+							<h3>#id</h3>
+							<p>根据给定的ID匹配一个元素。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>element</h3>
+							<p>根据给定的元素标签名匹配所有元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>.class</h3>
+							<p>根据给定的css类名匹配元素。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>*</h3>
+							<p>匹配所有元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>selector1,selector2,selectorN</h3>
+							<p>将每一个选择器匹配到的元素合并后一起返回。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>ancestor descendant</h3>
+							<p>在给定的祖先元素下匹配所有的后代元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>parent > child</h3>
+							<p>在给定的父元素下匹配所有的子元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>prev + next</h3>
+							<p>匹配所有紧接在 prev 元素后的 next 元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>prev ~ siblings</h3>
+							<p>匹配 prev 元素之后的所有 siblings 元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:first</h3>
+							<p>获取第一个元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:not(selector)</h3>
+							<p>去除所有与给定选择器匹配的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:even</h3>
+							<p>匹配所有索引值为偶数的元素，从 0 开始计数</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:odd</h3>
+							<p>匹配所有索引值为奇数的元素，从 0 开始计数</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:eq(index)</h3>
+							<p>匹配一个给定索引值的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:gt(index)</h3>
+							<p>匹配所有大于给定索引值的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:lang(language)</h3>
+							<p class="red">选择指定语言的所有元素。jquery 1.9以上版本支持</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:last()</h3>
+							<p>获取最后个元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:lt(index)</h3>
+							<p>匹配所有小于给定索引值的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:header</h3>
+							<p>匹配如 h1, h2, h3之类的标题元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:animated</h3>
+							<p>匹配所有正在执行动画效果的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:focus</h3>
+							<p class="red">匹配当前获取焦点的元素。jquery 1.6以上版本</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:root</h3>
+							<p class="red">选择该文档的根元素。jquery 1.9以上版本</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:target</h3>
+							<p class="red">选择由文档URI的格式化识别码表示的目标元素。jquery 1.9以上版本</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:contains(text)</h3>
+							<p>匹配包含给定文本的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:empty</h3>
+							<p>匹配所有不包含子元素或者文本的空元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:has(selector)</h3>
+							<p>匹配含有选择器所匹配的元素的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:parent</h3>
+							<p>匹配含有子元素或者文本的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:hidden</h3>
+							<p>匹配所有不可见元素，或者type为hidden的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:visible</h3>
+							<p>匹配所有的可见元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>[attribute]</h3>
+							<p>匹配包含给定属性的元素。注意，在jQuery 1.3中，前导的@符号已经被废除！如果想要兼容最新版本，只需要简单去掉@符号即可。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>[attribute=value]</h3>
+							<p>匹配给定的属性是某个特定值的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>[attribute!=value]</h3>
+							<p>匹配所有不含有指定的属性，或者属性不等于特定值的元素。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>[attribute^=value]</h3>
+							<p>匹配给定的属性是以某些值开始的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>[attribute$=value]</h3>
+							<p>匹配给定的属性是以某些值结尾的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>[attribute*=value]</h3>
+							<p>匹配给定的属性是以包含某些值的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>[selector1][selector2][selectorN]</h3>
+							<p>复合属性选择器，需要同时满足多个条件时使用。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:first-child</h3>
+							<p>匹配第一个子元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:first-of-type</h3>
+							<p class="red">jquery 1.9版本以上支持</p>
+							<p class="red">结构化伪类，匹配E的父元素的第一个E类型的孩子。等价于 :nth-of-type(1)  选择器。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:last-child</h3>
+							<p>:last  只匹配最后一个元素，而此选择符将为每个父元素匹配最后一个子元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:last-of-type</h3>
+							<p class="red">jquery 1.9版本以上支持</p>
+							<p class="red">结构化伪类，匹配E的父元素的最后一个E类型的孩子</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:nth-child</h3>
+							<p>匹配其父元素下的第N个子或奇偶元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:nth-last-child(n|even|odd|formula)</h3>
+							<p class="red">jquery 1.9版本以上支持</p>
+							<p class="red">选择所有他们父元素的第n个子元素。计数从最后一个元素开始到第一个。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:nth-last-of-type(n|even|odd|formula)</h3>
+							<p class="red">jquery 1.9版本以上支持</p>
+							<p class="red">选择的所有他们的父级元素的第n个子元素，计数从最后一个元素到第一个。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:nth-of-type(n|even|odd|formula)</h3>
+							<p class="red">jquery 1.9版本以上支持</p>
+							<p class="red">选择同属于一个父元素之下，并且标签名相同的子元素中的第n个。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:only-child</h3>
+							<p>如果某个元素是父元素中唯一的子元素，那将会被匹配</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:only-of-type</h3>
+							<p class="red">jquery 1.9版本以上支持</p>
+							<p class="red">选择所有没有兄弟元素，且具有相同的元素名称的元素。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:input</h3>
+							<p>匹配所有 input, textarea, select 和 button 元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:text</h3>
+							<p>匹配所有的单行<font color="red">文本框</font></p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:password</h3>
+							<p>匹配所有密码框</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:radio</h3>
+							<p>匹配所有单选按钮</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:checkbox</h3>
+							<p>匹配所有复选框</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:submit</h3>
+							<p>匹配所有提交按钮</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:image</h3>
+							<p>匹配所有图像域</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:reset</h3>
+							<p>匹配所有重置按钮</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:button</h3>
+							<p>匹配所有按钮</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:file</h3>
+							<p>匹配所有文件域</p>
+						</a>
+					</li>	
+					<li>
+						<a href="">
+							<h3>:enabled</h3>
+							<p>匹配所有可用元素</p>
+						</a>
+					</li>	
+					<li>
+						<a href="">
+							<h3>:disabled</h3>
+							<p>匹配所有不可用元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:checked</h3>
+							<p>匹配所有选中的被选中元素(复选框、单选框等，select中的option)，对于select元素来说，获取选中推荐使用 :selected</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>:selected</h3>
+							<p>匹配所有选中的option元素</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>jQuery api</h1>
+			</div>
+		</div>
+
+	</body>
+</html>
