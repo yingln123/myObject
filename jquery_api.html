@@ -9,6 +9,7 @@
 		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 		<style>
 			.red{color:red;}
+			.green{background-color: rgb(223, 240, 216)}
 		</style>
 	</head>
 	<body>
@@ -614,10 +615,100 @@
 			</div>
 			<div data-role="content">
 				<ul data-role="listview">
+					<li class="green">
+						<a href="">
+							<h3 >[常用]jQuery.ajax(url,[settings])</h3>
+							<p>通过 HTTP 请求加载远程数据。</p>
+						</a>
+					</li>
 					<li>
 						<a href="">
-							<h3></h3>
-							<p></p>
+							<h3>load(url, [data], [callback])</h3>
+							<p>load() 方法从服务器加载数据，并把返回的数据放入被选元素中。</p>
+						</a>
+					</li>
+					<li class="green">
+						<a href="">
+							<h3>[常用]jQuery.get(url, [data], [callback], [type])</h3>
+							<p>通过远程 HTTP GET 请求载入信息。这是一个简单的 GET 请求功能以取代复杂 $.ajax </p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>jQuery.getJSON(url, [data], [callback])</h3>
+							<p>通过 HTTP GET 请求载入 JSON 数据。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>jQuery.getScript(url, [callback])</h3>
+							<p>通过 HTTP GET 请求载入并执行一个 JavaScript 文件。</p>
+						</a>
+					</li>
+					<li class="green">
+						<a href="">
+							<h3>[常用]jQuery.post(url, [data], [callback], [type])</h3>
+							<p>通过远程 HTTP POST 请求载入信息。这是一个简单的 POST 请求功能以取代复杂 $.ajax </p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>ajaxComplete(callback)</h3>
+							<p>AJAX 请求完成时执行函数。Ajax 事件。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>ajaxError(callback)</h3>
+							<p>AJAX 请求发生错误时执行函数。Ajax 事件。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>ajaxSend(callback)</h3>
+							<p>AJAX 请求发送前执行函数。Ajax 事件。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>ajaxStart(callback)</h3>
+							<p>AJAX 请求开始时执行函数。Ajax 事件</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>ajaxStop(callback)</h3>
+							<p>AJAX 请求结束时执行函数。Ajax 事件。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>ajaxSuccess(callback)</h3>
+							<p>AJAX 请求成功时执行函数。Ajax 事件。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>返回值:undefinedjQuery.ajaxPrefilter( [dataTypes] , handler(options, originalOptions, jqXHR) )</h3>
+							<p>函数用于指定预先处理Ajax参数选项的回调函数。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>jQuery.ajaxSetup([options])</h3>
+							<p>设置全局 AJAX 默认选项。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>返回值:Stringserialize()</h3>
+							<p>序列表表格内容为字符串。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>返回值:Array<Object>serializeArray()</h3>
+							<p>序列化表格元素 (类似 '.serialize()' 方法) 返回 JSON 数据结构数据。</p>
 						</a>
 					</li>
 				</ul>
