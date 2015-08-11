@@ -1021,6 +1021,181 @@
 				<ul data-role="listview">
 					<li>
 						<a href="">
+							<h3>eq(index|-index)</h3>
+							<p>获取当前链式操作中第N个jQuery对象，返回jQuery对象，当参数大于等于0时为正向选取，比如0代表第一个，1代表第二个。当参数为负数时为反向选取，比如-1为倒数第一个</p>
+							<p>类似的有get(index),不过get(index)返回的是DOM对象</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>first()</h3>
+							<p>获取第一个元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>last()</h3>
+							<p>获取最后个元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>hasClass(class)</h3>
+							<p>检查当前的元素是否含有某个特定的类，如果有，则返回true。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>filter(expr|obj|ele|fn)</h3>
+							<p>筛选出与指定表达式匹配的元素集合。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>is(expr|obj|ele|fn)</h3>
+							<p>根据选择器、DOM元素或 jQuery 对象来检测匹配元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>map(callback)</h3>
+							<p>将一组元素转换成其他数组（不论是否是元素数组）</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>has(expr|ele)</h3>
+							<p>保留包含特定后代的元素，去掉那些不含有指定后代的元素。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>not(expr|ele|fn)</h3>
+							<p>删除与指定表达式匹配的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>slice(start, [end])</h3>
+							<p>选取一个匹配的子集</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>children([expr])</h3>
+							<p>取得一个包含匹配的元素集合中每一个元素的所有子元素的元素集合</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>closest(expr|object|element)</h3>
+							<p>jQuery 1.3新增。从元素本身开始，逐级向上级元素匹配，并返回最先匹配的元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>find(expr|obj|ele)</h3>
+							<p>搜索所有与指定表达式匹配的元素。这个函数是找出正在处理的元素的后代元素的好方法</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>next([expr])</h3>
+							<p>取得一个包含匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>nextAll([expr])</h3>
+							<p>查找当前元素之后所有的同辈元素,可以用表达式过滤</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>nextUntil([exp|ele][,fil])</h3>
+							<p>查找当前元素之后所有的同辈元素，直到遇到匹配的那个元素为止</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>offsetParent()</h3>
+							<p>返回第一个匹配元素用于定位的父节点</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>parent([expr])</h3>
+							<p>取得一个包含着所有匹配元素的唯一父元素的元素集合</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>parents([expr])</h3>
+							<p>取得一个包含着所有匹配元素的祖先元素的元素集合（不包含根元素）。可以通过一个可选的表达式进行筛选</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>parentsUntil([expr|element][,filter])</h3>
+							<p>查找当前元素的所有的父辈元素，直到遇到匹配的那个元素为止</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>prev([expr])</h3>
+							<p>取得一个包含匹配的元素集合中每一个元素紧邻的前一个同辈元素的元素集合</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>prevAll([expr])</h3>
+							<p>查找当前元素之前所有的同辈元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>prevUntil([exp|ele][,fil])</h3>
+							<p>查找当前元素之前所有的同辈元素，直到遇到匹配的那个元素为止</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>siblings([expr])</h3>
+							<p>取得一个包含匹配的元素集合中每一个元素的所有唯一同辈元素的元素集合。可以用可选的表达式进行筛选</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>add(expr|ele|html|obj[,con])</h3>
+							<p>把与表达式匹配的元素添加到jQuery对象中。这个函数可以用于连接分别与两个表达式匹配的元素结果集</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>andSelf()</h3>
+							<p>加入先前所选的加入当前元素中</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>andBack()</h3>
+							<p>添加堆栈中元素集合到当前集合，一个选择性的过滤选择器。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>contents()</h3>
+							<p>查找匹配元素内部所有的子节点（包括文本节点）。如果元素是一个iframe，则查找文档内容</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>end()</h3>
+							<p>回到最近的一个"破坏性"操作之前。即，将匹配的元素列表变为前一次的状态。</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
 							<h3></h3>
 							<p></p>
 						</a>
@@ -1047,7 +1222,7 @@
 				<ul data-role="listview">
 					<li>
 						<a href="">
-							<h3></h3>
+							<h3>返回值:jQueryeq(index|-index)</h3>
 							<p></p>
 						</a>
 					</li>
