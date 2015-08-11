@@ -1729,8 +1729,110 @@
 				<ul data-role="listview">
 					<li>
 						<a href="">
-							<h3></h3>
-							<p></p>
+							<h3>event.currentTarget</h3>
+							<p>在事件冒泡阶段中的当前DOM元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.data</h3>
+							<p>当前执行的处理器被绑定的时候，包含可选的数据传递给jQuery.fn.bind</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.delegateTarget</h3>
+							<p>当currently-called的jQuery事件处理程序附加元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.isDefaultPrevented()</h3>
+							<p>根据事件对象中是否调用过 event.preventDefault() 方法来返回一个布尔值</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.isImmediatePropagationStopped()</h3>
+							<p>根据事件对象中是否调用过 event.stopImmediatePropagation() 方法来返回一个布尔值</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.isPropagationStopped()</h3>
+							<p>根据事件对象中是否调用过 event.stopPropagation() 方法来返回一个布尔值</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.namespace</h3>
+							<p>当事件被触发时此属性包含指定的命名空间</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.pageX</h3>
+							<p>鼠标相对于文档的左边缘的位置</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>eve.pageY</h3>
+							<p>鼠标相对于文档的上边缘的位置</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.preventDefault()</h3>
+							<p>阻止默认事件行为的触发</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.relatedTarget</h3>
+							<p>在事件中涉及的其它任何DOM元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.result</h3>
+							<p>这个属性包含了当前事件事件最后触发的那个处理函数的返回值，除非值是 undefined </p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.stopImmediatePropagation()</h3>
+							<p>阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.stopPropagation()</h3>
+							<p>防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.target</h3>
+							<p>最初触发事件的DOM元素</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.timeStamp</h3>
+							<p>这个属性返回事件触发时距离1970年1月1日的毫秒数</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.type</h3>
+							<p>返回当前 Event 对象表示的事件的名称</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>event.which</h3>
+							<p>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键或按钮。</p>
 						</a>
 					</li>
 				</ul>
@@ -1750,8 +1852,80 @@
 				<ul data-role="listview">
 					<li>
 						<a href="">
-							<h3></h3>
-							<p></p>
+							<h3>deferred.done(doneCallbacks[,doneCallbacks])</h3>
+							<p>当延迟成功时调用一个函数或者数组函数.</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.fail(failCallbacks[,failCallbacks])</h3>
+							<p>当延迟失败时调用一个函数或者数组函数</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.reject(args)</h3>
+							<p>拒绝延迟对象，并根据给定的参数调用任何失败的回调函数</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.rejectWith(context,[args])</h3>
+							<p>拒绝延迟的对象，并根据给定的上下文和参数调用任何失败的回调函数</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.resolve(args)</h3>
+							<p>解决递延对象，并根据给定的参数调用任何完成的回调函数</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.resolveWith(context,[args])</h3>
+							<p>解决递延对象，并根据给定的上下文和参数调用任何完成的回调函数</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.then(doneFilter [, failFilter ] [, progressFilter ])</h3>
+							<p>添加处理程序被调用时，递延对象得到解决或者拒绝</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.promise([type],[target])</h3>
+							<p>返回一个 Promise 对象用来观察当某种类型的所有行动绑定到集合，排队与否还是已经完成</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.always(alwaysCallbacks,[alwaysCallbacks])</h3>
+							<p>当递延对象是解决或拒绝时被调用添加处理程序</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.notify(args)</h3>
+							<p>调用一个给定args的递延对象上的进行中的回调 （progressCallbacks）</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.notifyWith(context,[args])</h3>
+							<p>去掉字符串起始和结尾的空格</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.progress(progressCallbacks)</h3>
+							<p>当Deferred对象时生成进度通知时添加被访问处理程序</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>deferred.state()</h3>
+							<p>确定一个Deferred对象的当前状态</p>
 						</a>
 					</li>
 				</ul>
@@ -1771,8 +1945,68 @@
 				<ul data-role="listview">
 					<li>
 						<a href="">
-							<h3></h3>
-							<p></p>
+							<h3>callbacks.add(callbacks)</h3>
+							<p>回调列表中添加一个回调或回调的集合</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>callbacks.disable()</h3>
+							<p>禁用回调列表中的回调 </p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>callbacks.empty()</h3>
+							<p>从列表中删除所有的回调</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>callbacks.fire(arguments)</h3>
+							<p>禁用回调列表中的回调</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>callbacks.fired()</h3>
+							<p>用给定的参数调用所有的回调</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>callbacks.fireWith([context][,args])</h3>
+							<p>访问给定的上下文和参数列表中的所有回调</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>callbacks.has(callback)</h3>
+							<p>确定是否提供的回调列表 </p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>callbacks.lock()</h3>
+							<p>锁定在其当前状态的回调列表</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>callbacks.locked()</h3>
+							<p>确定是否已被锁定的回调列表</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>callbacks.remove(callbacks)</h3>
+							<p>删除回调或回调回调列表的集合</p>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<h3>jQuery.callbacks(flags)</h3>
+							<p>一个多用途的回调列表对象，提供了强大的的方式来管理回调函数列表</p>
 						</a>
 					</li>
 				</ul>
