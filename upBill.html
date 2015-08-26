@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>this is a tool</title>
+<style>
+body{min-height:100%;}
+	.s-skin-container{position:absolute;top:0px;left:0px;z-index:-10;height:100%;width:100%;background:yellow;zoom:1;background-attachment:fixed;background-repeat:no-repeat;background-position-x:center;background-position-y:0px;background-size:cover;background-color:rgb(64,64,64);background-image:url(images/24.jpg);overflow:hidden;}
+	.bill{position:absolute;border-radius:50%;width:100px;height:100px;background-image:url(images/rBACE1LgcGDyxekzAAAUohnQlKI323_200x200_3.jpg);background-size:contain;} 
+</style>
+<script>
+	window.onload=function(){
+		var container = document.getElementById("container");
+		
+		var es = container.getElementsByClassName("bill");
+		var height = container.offsetHeight;
+		(function(){
+			for(var i=0;i<es.length;i++){
+				var e=es[i];
+				
+				e.style.left = Math.round(Math.random()*container.offsetWidth)+"px";
+				
+				e.style.top = height+"px";
+				
+				e.setAttribute("data-speed", Math.round(Math.random()*10)+1)
+				
+			}
+		})();
+		
+		
+		
+		
+		var index = 0;
+		
+	setInterval(function(){
+		
+			var value = height-index*4+"px";
+		
+			var elements = container.getElementsByClassName("bill");
+			
+			(function(){
+				for(var i=0;i<elements.length;i++){
+					var element = elements[i];
+					var index = element.getAttribute("data-index");
+					var speed = element.getAttribute("data-speed")
+					if(!index){
+						index = 1;
+					}
+					element.style.top = height - index * speed + "px";
+					
+					console.log(element.style.top);
+					
+					index++;
+					
+					if((element.offsetTop+element.offsetHeight)<0){
+						element.setAttribute("data-index", 1);
+						element.setAttribute("data-speed", Math.round(Math.random()*10)+1);
+						element.style.left = Math.round(Math.random()*container.offsetWidth)+"px";
+						element.style.top=height+"px";
+					}else{
+						element.setAttribute("data-index", index);
+					}
+				
+				}
+				
+			})();
+			
+			
+		}, 20);
+
+		
+	}
+</script>
+</head>
+<body>
+<div class="s-skin-container" id="container">
+	<div class="bill"></div>
+	<div class="bill"></div>
+	<div class="bill"></div>
+	<div class="bill"></div>
+	<div class="bill"></div>
+	<div class="bill"></div>
+	<div class="bill"></div>
+</div>
+
+</body>
+</html>
