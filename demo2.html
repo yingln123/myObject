@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>	
+		<style>
+			html,body{margin:0;padding:0;background: #000}
+			body{text-align: center}
+			.ul1{list-style: none;padding:0;margin:0;width:300px;height:300px;position:absolute;top:50%;left: 50%;margin-left:-150px;margin-top: -200px;perspective:1000px; z-index: 10}
+			.ul1>li{width:200px;height: 300px;background: #339999; position: absolute;top:0;left: 0;z-index: 1;transition:2s all ease;opacity:0;}
+			.ul1>li.current{z-index: 1100;opacity: 1;display: block}
+			.ul1>li.top1{opacity:0; transform:rotateY(60deg) translateX(-600px)  ; z-index: 20;}
+			.ul1>li.top2{opacity:.4;transform:rotateY(45deg) translateX(-300px); z-index: 60;}
+			.ul1>li.top4{opacity:.4;transform:rotateY(-45deg) translateX(300px); z-index: 60;}
+			.ul1>li.top5{opacity:0; transform:rotateY(-60deg) translateX(600px)  ; z-index: 20;}
+			
+		</style>
+		<script>
+		window.onload=function(){
+			var oUl1 = document.getElementById("ul1");
+			var oBtn1 = document.getElementById("btn1");
+			var oBtn2 = document.getElementById("btn2");
+			var oLi = document.querySelectorAll("#ul1>li");
+			var direction = "left";
+
+			var aClass = [];
+			(function(){
+				for(var i=0;i<oLi.length;i++){
+					aClass[i] = oLi[i].className;
+					oLi[i].style.backgroundImage="url(images/"+(i+1)+".jpg)";
+					oLi[i].style.backgroundSize="cover";
+				}
+			})();
+
+/*
+			oBtn1.onclick=function(){
+				direction="left"
+				aClass.unshift(aClass.pop());
+				for(var i=0;i<oLi.length;i++){
+					oLi[i].className = aClass[i];
+				}
+			}
+
+			oBtn2.onclick=function(){
+				direction="right"
+				aClass.push(aClass.shift());
+				for(var i=0;i<oLi.length;i++){
+					oLi[i].className = aClass[i];
+				}
+			}
+*/
+
+			function run(){
+				if(direction=="left"){
+						aClass.unshift(aClass.pop());
+						for(var i=0;i<oLi.length;i++){
+							oLi[i].className = aClass[i];
+						}
+				}else{
+						aClass.push(aClass.shift());
+						for(var i=0;i<oLi.length;i++){
+							oLi[i].className = aClass[i];
+						}
+				}
+
+			}
+
+			run();
+			setInterval(function(){
+				run();
+			}, 2000);
+
+		}
+		</script>
+	</HEAD>
+	<BODY>
+<!--
+			<input type="button" value="<--" id="btn1" />
+			<input type="button" value="-->" id="btn2"/>
+-->
+		
+
+		<ul class="ul1" id="ul1">
+			<li class="top1"></li>
+			<li class="top2"></li>
+			<li class="current"></li>
+			<li class="top4"></li>
+			<li class="top5"></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+	</BODY>
+</HTML>

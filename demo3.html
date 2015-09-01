@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>	
+		<style>
+			body,html{margni:0;padding:0;}
+			*{transition:.4s all ease;}
+			ul{padding:0;margin:0;border:1px solid #ccc;width:400px;height:640px;margin:10px auto;list-style: none;}
+			li{width:120px;height:200px;float:left;margin-left:10px;margin-top:10px;cursor: pointer;}
+			li:hover{transform:scale(2);}
+	
+			input:hover{transform:scale(3);}
+			.clear{clear:both;}
+		</style>
+		<script>
+			window.onload=function(){
+				var oLi = document.querySelectorAll("#ul1>li");
+				for(var i=0;i<oLi.length;i++){
+					oLi[i].style.backgroundImage="url(images/"+(i%7+1)+".jpg)";
+				}
+			}
+		</script>
+	</HEAD>
+	<BODY>
+		<ul class="ul1" id="ul1">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+
+		<input type="button" value="button" />
+
+
+		<div style="width:500px;background:#FF9922">
+			<div style="width:100px;height:100px;background:blue;float:right;"></div>
+			<div style="width:100px;height:100px;background:green;float:left"></div>
+			<div style="clear:both"></div>
+		</div>
+	</BODY>
+</HTML>
