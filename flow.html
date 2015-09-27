@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>瀑布流布局</title>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<style type="text/css">
+body {
+	margin: 0;
+	font-family: 微软雅黑;
+}
+
+#flow-box {
+	margin: 10px auto 0 auto;
+	padding: 0;
+	position: relative;
+}
+
+#flow-box li {
+	width: 190px;
+	position: absolute;
+	padding: 10px;
+	border: solid 1px #efefef;
+	list-style: none;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter: alpha(opacity = 0);
+	-webkit-transition: opacity 500ms ease-in-out;
+	-moz-transition: opacity 500ms ease-in-out;
+	-o-transition: opaicty 500ms ease-in-out;
+	transition: opaicty 500ms ease-in-out;
+		transition:1s all ease;
+}
+
+#flow-box li img {
+	width: 100%;
+}
+
+#flow-box li img:hover{
+	transition:1s all ease;
+	transform:scale(2);
+	z-index: 9999;
+}
+
+#flow-box li a {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+	line-height: 18px;
+	margin-top: 10px;
+	text-decoration: none;
+}
+
+.loadwrap {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+</style>
+
+<script type="text/javascript">
+	function flow(mh, mv) {//参数mh和mv是定义数据块之间的间距，mh是水平距离，mv是垂直距离 
+
+		var w = document.documentElement.offsetWidth;//计算页面宽度 
+		var ul = document.getElementById("flow-box");
+		var li = ul.getElementsByTagName("li");
+		var iw = li[0].offsetWidth + mh;//计算数据块的宽度 
+		var c = Math.floor(w / iw);//计算列数 
+		ul.style.width = iw * c - mh + "px";//设置ul的宽度至适合便可以利用css定义的margin把所有内容居中 
+
+		var liLen = li.length;
+		var lenArr = [];
+		for (var i = 0; i < liLen; i++) {//遍历每一个数据块将高度记入数组 
+			lenArr.push(li[i].offsetHeight);
+		}
+
+		var oArr = [];
+		for (var i = 0; i < c; i++) {//把第一行排放好，并将每一列的高度记入数据oArr 
+			li[i].style.top = "0";
+			li[i].style.left = iw * i + "px";
+			li[i].style.opacity = "1";
+			li[i].style["-moz-opacity"] = "1";
+			li[i].style["filter"] = "alpha(opacity=100)";
+			oArr.push(lenArr[i]);
+		}
+
+		for (var i = c; i < liLen; i++) {//将其他数据块定位到最短的一列后面，然后再更新该列的高度 
+			var x = _getMinKey(oArr);//获取最短的一列的索引值 
+			li[i].style.top = oArr[x] + mv + "px";
+			li[i].style.left = iw * x + "px";
+			li[i].style.opacity = "1";
+			li[i].style["-moz-opacity"] = "1";
+			li[i].style["filter"] = "alpha(opacity=100)";
+			oArr[x] = lenArr[i] + oArr[x] + mv;//更新该列的高度 
+		}
+		document.getElementById("loadimg").style.top = _getMaxValue(oArr) + 50
+				+ "px";//将loading移到下面 
+	}
+	//图片加载完成后执行 
+	window.onload = function() {
+		var oUl = document.getElementById("flow-box");
+
+		var str = "";
+		var colde = 0;
+		for (var i = 0; i < 80; i++) {
+			if (i % 20 < 9) {
+				code = "00" + (i % 20 + 1);
+			} else {
+				code = "0" + (i % 20 + 1);
+			}
+
+			str += "<li><img src=\"images/grils/"+code+".jpg\" /><a href=\"#\">图片标题"
+					+ code + "</a></li>";
+		}
+
+		$("#flow-box").html(str);
+
+		flow(20, 20)
+	};
+
+	//获取数字数组的最大值 
+	function _getMaxValue(arr) {
+		var a = arr[0];
+		for ( var k in arr) {
+			if (arr[k] > a) {
+				a = arr[k];
+			}
+		}
+		return a;
+	}
+
+	//获取数字数组最小值的索引 
+	function _getMinKey(arr) {
+		var a = arr[0];
+		var b = 0;
+		for ( var k in arr) {
+			if (arr[k] < a) {
+				a = arr[k];
+				b = k;
+			}
+		}
+		return b;
+	}
+
+	//改变窗口大小时重新布局 
+	var re;
+	window.onresize = function() {
+		clearTimeout(re);
+		re = setTimeout(function() {
+			flow(10, 10);
+		}, 200);
+	}
+</script>
+</head>
+<body>
+	<ul id="flow-box">
+		<li><img src="images/grils/001.jpg" /><a href="#">图片标题1</a></li>
+		<li><img src="images/grils/002.jpg" /><a href="#">图片标题2</a></li>
+		<li><img src="images/grils/003.jpg" /><a href="#">图片标题3</a></li>
+		<li><img src="images/grils/004.jpg" /><a href="#">图片标题4</a></li>
+		<li><img src="images/grils/005.jpg" /><a href="#">图片标题5</a></li>
+		<li><img src="images/grils/006.jpg" /><a href="#">图片标题6</a></li>
+		<li><img src="images/grils/007.jpg" /><a href="#">图片标题7</a></li>
+		<li><img src="images/grils/008.jpg" /><a href="#">图片标题8</a></li>
+		<li><img src="images/grils/009.jpg" /><a href="#">图片标题9</a></li>
+		<li><img src="images/grils/010.jpg" /><a href="#">图片标题10</a></li>
+		<li><img src="images/grils/011.jpg" /><a href="#">图片标题11</a></li>
+		<li><img src="images/grils/012.jpg" /><a href="#">图片标题12</a></li>
+		<li><img src="images/grils/013.jpg" /><a href="#">图片标题13</a></li>
+		<li><img src="images/grils/014.jpg" /><a href="#">图片标题14</a></li>
+		<li><img src="images/grils/015.jpg" /><a href="#">图片标题15</a></li>
+		<li><img src="images/grils/016.jpg" /><a href="#">图片标题16</a></li>
+		<li><img src="images/grils/017.jpg" /><a href="#">图片标题17</a></li>
+		<li><img src="images/grils/018.jpg" /><a href="#">图片标题18</a></li>
+		<li><img src="images/grils/019.jpg" /><a href="#">图片标题19</a></li>
+		<li><img src="images/grils/020.jpg" /><a href="#">图片标题20</a></li>
+	</ul>
+	<div id="loadimg" class="loadwrap">loading……</div>
+</body>
+</html>
