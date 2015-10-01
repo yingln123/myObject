@@ -84,6 +84,31 @@ body {
 </style>
 
 <script type="text/javascript">
+	var imgData = {"d": [ 
+{"img": "images/grils/001.jpg", "title": "图片1"}, 
+{"img": "images/grils/002.jpg", "title": "图片2"}, 
+{"img": "images/grils/003.jpg", "title": "图片3"}, 
+{"img": "images/grils/004.jpg", "title": "图片4"}, 
+{"img": "images/grils/005.jpg", "title": "图片5"}, 
+{"img": "images/grils/006.jpg", "title": "图片6"}, 
+{"img": "images/grils/007.jpg", "title": "图片7"}, 
+{"img": "images/grils/008.jpg", "title": "图片8"}, 
+{"img": "images/grils/009.jpg", "title": "图片9"}, 
+{"img": "images/grils/010.jpg", "title": "图片10"}, 
+{"img": "images/grils/011.jpg", "title": "图片11"}, 
+{"img": "images/grils/012.jpg", "title": "图片12"}, 
+{"img": "images/grils/013.jpg", "title": "图片13"}, 
+{"img": "images/grils/014.jpg", "title": "图片14"}, 
+{"img": "images/grils/015.jpg", "title": "图片15"}, 
+{"img": "images/grils/016.jpg", "title": "图片16"}, 
+{"img": "images/grils/017.jpg", "title": "图片17"}, 
+{"img": "images/grils/018.jpg", "title": "图片18"}, 
+{"img": "images/grils/019.jpg", "title": "图片19"}, 
+{"img": "images/grils/020.jpg", "title": "图片20"},
+]};
+
+
+
 	function flow(mh, mv) {//参数mh和mv是定义数据块之间的间距，mh是水平距离，mv是垂直距离 
 
 		var w = document.documentElement.offsetWidth;//计算页面宽度 
@@ -127,7 +152,36 @@ body {
 						: document.body.scrollTop;
 				if (scrollTop >= st - document.documentElement.clientHeight) {
 					window.onscroll = null;//为防止重复执行，先清除事件 
-					_request(
+
+					setTimeout(function(){
+									_addItem(
+										imgData.d,
+										function() {//追加数据 
+											var liLenNew = li.length;
+											for (var i = liLen; i < liLenNew; i++) {
+												lenArr.push(li[i].offsetHeight);
+											}
+											for (var i = liLen; i < liLenNew; i++) {
+												var x = _getMinKey(oArr);
+												li[i].style.top = oArr[x] + 10
+														+ "px";
+												li[i].style.left = iw * x
+														+ "px";
+												li[i].style.opacity = "1";
+												li[i].style["-moz-opacity"] = "1";
+												li[i].style["filter"] = "alpha(opacity=100)";
+												oArr[x] = lenArr[i] + oArr[x]
+														+ 10;
+											}
+											document.getElementById("loadimg").style.top = _getMaxValue(oArr)
+													+ 50 + "px";//loading向下移位 
+											liLen = liLenNew;
+											window.onscroll = scroll;//执行完成，恢愎onscroll事件 
+										});
+								}, 2000);
+
+
+				/*	_request(
 							null,
 							"json/json.json",
 							function(data) {//当滚动到达最短的一列的距离时便发送ajax请求新的数据，然后执行回调函数 
@@ -158,6 +212,8 @@ body {
 										});
 								}, 2000);
 							})
+
+							*/
 				}
 			}
 			window.onscroll = scroll;
