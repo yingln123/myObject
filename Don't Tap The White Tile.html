@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> 别踩白块儿[Don't Tap The White Tile] </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <style>
+	html{height: 100%;color:#000;display:block}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl, dt, dd, ul,ol,li,pre,form,fieldset, legend, button, input, textarea,th,td {margin: 0;padding:0;}
+body{min-height: 100%;_height:100%; cursor: default;min-width: 1160px; position: absolute;top:0px;display:block;font-size: 12px;font-family: arial, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体', \5b8b\4f53, Tahoma, Arial, Helvetica, STHeiti;background: #efefef;margin:0 auto;}
+div{display:block}
+	table{width:500px;margin:20px auto;border:1px solid #c4c4c4;background:#CCC;border-collapse:collapse; }
+	table tr td{border:1px solid #CCC;}
+	.black{width:50px;height:100px;background:#000;color:#fff;}
+	.FFF{width:50px;height:100px;background:#fff;color:#000}
+	.head{width:50%;height:30px;line-height:30px;font-size:15px;margin:100px auto;}
+	.head input{height:30px;line-height:30px;	padding-left:10px;}
+	#restart{height:33px;line-height:33px;width:80px;padding:0;border-radius:5px;background:#0066CC ;border:#0066CC ;color:#FFF;}
+	#count{display:inline-block;width:80px;text-align:center;margin-right:100px;}
+  </style>
+  <script>
+	window.onload=function(){
+		var count = 0, timer = null, speed = 1000, oGameBox = document.getElementById("gameBox");
+		//document.getElementById("count").value=count;
+		document.getElementById("count").innerHTML = count;
+		function changeStatus(){
+			var array = new Array(), tr = "";
+			for(var i=0;i<4;i++){
+				var td = "";
+				for(var j=0;j<4;j++){
+					var rand = Math.floor(Math.random()*100);
+					if(rand>50){
+						td += "<td class='black'></td>";
+					}else{
+						td += "<td class='FFF'></td>";	
+					}
+					console.info(rand);
+				}
+				tr += "<tr>"+td+"</tr>"
+			}
+			oGameBox.innerHTML = tr;
+			var oList = document.querySelectorAll("td");
+			for(i=0;i<oList.length;i++){
+				oList[i].onclick=function(){
+
+					if(timer==null){
+						alert("游戏已停止，请重新开始游戏");
+						return ;
+					}
+					if(this.className == "FFF"){
+						alert("游戏结束"), count = 0;
+						clearInterval(timer);
+						timer = null;
+					}else{
+						count ++,speed-=10;
+					}
+				//	document.getElementById("count").value=count;
+					document.getElementById("count").innerHTML = count;
+				}
+			}
+			timer = setTimeout(changeStatus, speed);
+		}
+		changeStatus();
+		document.getElementById("restart").onclick=changeStatus;
+	}
+  </script>
+ </head>
+ <body style="background:#efe4ff">
+   <div class="head">数量：<span id="count">0</span><input type="text"  value="0" readOnly="readOnly" style="display:none;"/> <button id="restart" value="重新开始">重新开始</button></div>
+  <table id="gameBox" ></table>
+ </body>
+</html>
